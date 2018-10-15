@@ -12,14 +12,14 @@ export default class MaterialTextInput extends React.Component {
     }
     
     render() {
-    //   this.props.styles = Object.assign({},defaultStyles,this.props.styles);
+      this.props.styles = Object.assign({},defaultStyles,this.props.styles);
       let { inputText } = this.state;
       return (
           <View>
             <TextField
-                label='User Name'
+                label= {this.props.label}
                 value={inputText}
-                onChangeText={ (inputText) => this.setState({ inputText }) }
+                onChangeText={ (inputText) => this.setState({ inputText:inputText }) }
             />
           </View>
       );

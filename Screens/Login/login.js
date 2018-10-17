@@ -14,9 +14,11 @@ export default class LoginScreen extends React.Component {
     }
     render() {
       return (
-        <View style={{flex: 1,flexDirection: 'column',
-            justifyContent: 'center',
-            padding:40
+        <View style={
+            {
+                flex: 1,flexDirection: 'column',
+                justifyContent: 'center',
+                padding:40
             }}>
         <View style={{flexDirection:'row',justifyContent:'center'}}>
         <Image 

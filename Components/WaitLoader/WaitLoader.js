@@ -6,15 +6,6 @@ export default class WaitLoader extends React.Component{
 
     constructor(props){
         super(props);
-        
-    }
-
-    componentDidMount(){
-        if(this.props.propagationLogic()){
-            this.props.navigation.navigate(this.props.propagationLogicSuccess);
-        }else{
-            this.props.propagationTakeBackLogic(this);
-        }
     }
 
     render(){

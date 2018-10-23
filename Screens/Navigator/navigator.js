@@ -1,58 +1,68 @@
-import { createStackNavigator,createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import LoginScreen from '../Login/login';
 import RegisterScreen from '../Register/register';
 import CheckAuthenticationScreen from '../AuthenticationCheck/checkAuthentication';
 import WaitLoader from '../../Components/WaitLoader/WaitLoader';
-const appNavigation = createStackNavigator({
+
+import { Alerts } from '../';
+
+const appNavigation = createStackNavigator(
+  {
     // Splash: {
     //   screen: HomeScreen
     // },
-    Login:{
-        screen: LoginScreen
+    Alerts: {
+      screen: Alerts
     },
-    Register:{
-        screen:RegisterScreen
+    Login: {
+      screen: LoginScreen
     },
-    WaitLoader:{
-        screen:WaitLoader
+    Register: {
+      screen: RegisterScreen
+    },
+    WaitLoader: {
+      screen: WaitLoader
     }
   },
   {
     initialRouteName: 'Login',
     navigationOptions: {
-        header:null
+      header: null
     }
   }
 );
 
-const authNavigation = createStackNavigator({
+const authNavigation = createStackNavigator(
+  {
     // Splash: {
     //   screen: HomeScreen
     // },
     // Authenticate:{
     //     screen:AuthScreen
     // },
-    Login:{
-        screen: LoginScreen
+    Login: {
+      screen: LoginScreen
     },
-    Register:{
-        screen:RegisterScreen
+    Register: {
+      screen: RegisterScreen
     }
   },
   {
     initialRouteName: 'Login',
     navigationOptions: {
-        header:null
+      header: null
     }
   }
 );
 
-export default createSwitchNavigator({
+export default createSwitchNavigator(
+  {
     Auth: {
-        screen:CheckAuthenticationScreen
+      screen: CheckAuthenticationScreen
     },
     appNavigation: appNavigation
-},{
-    initialRouteName:'Auth'
-}
+  },
+  {
+    initialRouteName: 'Auth'
+  }
 );

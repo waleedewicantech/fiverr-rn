@@ -2,7 +2,7 @@ import React from 'react';
 import { Text,View,ActivityIndicator } from 'react-native';
 
 export default class WaitLoader extends React.Component{
-    
+
 
     constructor(props){
         super(props);

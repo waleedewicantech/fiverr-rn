@@ -19,7 +19,7 @@ export default class MaterialTextInput extends React.Component {
             <TextField
                 label= {this.props.label}
                 value={inputText}
-                onChangeText={ (inputText) => this.setState({ inputText:inputText }) }
+                onChangeText={ (inputText) => this.props.onTextChange(inputText) }
             />
           </View>
       );

@@ -4,7 +4,6 @@ import {SOURCES} from '../../Common';
 import {MaterialTextField} from '../../Components/Material-text-field';
 import {MaterialTextPasswordInput} from '../../Components/Material-password-field';
 import {MaterialButton} from '../../Components/MaterialButton';
-import {register,navigateToLogin} from './registerHandler';
 export default class RegisterScreen extends React.Component {
     constructor(props){
         super(props);
@@ -37,8 +36,8 @@ export default class RegisterScreen extends React.Component {
             flexDirection: 'row',
             justifyContent:'flex-end'
         }}>
-            <MaterialButton text="Register" onPress={()=>navigateToLogin(this)}/>
-            <MaterialButton text="Login" onPress={()=>{register(this)}}/>
+            <MaterialButton text="Register"/>
+            <MaterialButton text="Login"/>
         </View> 
       </View>
       );

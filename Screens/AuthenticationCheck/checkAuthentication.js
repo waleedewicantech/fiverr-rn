@@ -1,22 +1,40 @@
 import React from 'react';
-import { checkTokenExpiry, propagationFailLogic , authenticationSuccessful } from './authenticationCheckLogic';
+import { checkTokenExpiry } from '../../redux/actions/auth';
 import AuthenticationLoader from '../../Components/WaitLoader/WaitLoader';
-export default class CheckAuthenticationScreen extends React.Component{
-    constructor(props){
-        super(props);
-    }
+import { connect } from 'tls';
 
-    componentDidMount(){
-        if(checkTokenExpiry()){
-            this.props.navigation.navigate('Login');
-        }else{
-            this.props.navigation.navigate('Login');
-        }
-    }
+class CheckAuthenticationScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-    render(){
-        return (
-            <AuthenticationLoader />
-        );
+  userAlreadyLoggedIn(e){
+    return this.props.onCheckToken();
+  }
+
+  componentDidMount() {
+    if (this.userAlreadyLoggedIn()) {
+      this.props.navigation.navigate('appNavigation');
+    } else {
+      this.props.navigation.navigate('Login');
     }
-} 
+  }
+
+  render() {
+    return <AuthenticationLoader />;
+  }
+}
+
+const mapStateToProps = (state,ownProps) =>{
+  return{
+    isLoggedIn:state.auth.isLoggedIn
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCheckToken:()=>{dispatch(checkTokenExpiry())},
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CheckAuthenticationScreen);
+
